@@ -6,9 +6,9 @@ const Product = ({cards}) => {
         <div className='flex flex-wrap justify-center gap-6'>
 {
     cards.map((card )=> {
-        console.log(card,'yes')
-        return  <div className="card w-96 bg-base-100 shadow-sm ">
-  <div className="card-body flex flex-col">
+       
+        return  <div className="card w-96 bg-base-100 shadow-sm mb-30">
+  <div className="card-body flex flex-col ">
    <div className='flex gap-50'> <img src={card.icon} alt="" className='rounded-full w-10 h-10 border border-gray-300'/>
     <span className=" badge badge-xs badge-warning">Most Popular</span>
     </div>
