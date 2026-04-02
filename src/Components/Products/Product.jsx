@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { } from 'react';
+import Card from '../Cards/Card';
+import SelectedProducts from '../Selected/SelectedProducts';
+
 
 const Product = ({cards}) => {
+  
     console.log(cards,'cards')
     return (
         <div className='flex flex-wrap justify-center gap-6'>
+        
 {
     cards.map((card )=> {
        
         return  <div className="card w-96 bg-base-100 shadow-sm mb-30">
+         
   <div className="card-body flex flex-col ">
    <div className='flex gap-50'> <img src={card.icon} alt="" className='rounded-full w-10 h-10 border border-gray-300'/>
-    <span className=" badge badge-xs badge-warning">Most Popular</span>
+    <span className=" badge badge-xs badge-warning">{card.tag}</span>
     </div>
 
     <div className="">
@@ -45,8 +51,8 @@ const Product = ({cards}) => {
     })
 }
 
-
-           
+   {selectedType === 'products'? (<Card Product={Product}/>):(<SelectedProducts/>)}   
+        <Card Product={Product} />     
         </div>
     );
 };

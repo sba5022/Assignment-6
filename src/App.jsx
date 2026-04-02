@@ -10,6 +10,7 @@ import MainCards from './Components/Cards/MainCards'
 import NavBar from './Components/NavBar'
 import Product from './Components/Products/Product'
 import GetStart from './Components/Get/GetStart'
+import SelectedProducts from './Components/Selected/SelectedProducts'
 const fetchCard = async()=>{
   // const res = await fetch('/data.json');
  const res = fetch('/data.json').then(res => res.json())
@@ -27,6 +28,7 @@ function App() {
 <MainCards cardsPromise={cardsPromise}/>
 </Suspense>
 <GetStart/>
+
 </>
   )
 }
