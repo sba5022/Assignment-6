@@ -1,36 +1,40 @@
 
 
-import { Suspense } from 'react'
+
+import { Suspense, useState } from 'react'
 import './App.css'
 import Ban from './Components/Bans/Ban'
-import Card from './Components/Cards/Card'
-import MainCards from './Components/Cards/MainCards'
 
 
 import NavBar from './Components/NavBar'
 import Product from './Components/Products/Product'
 import GetStart from './Components/Get/GetStart'
-import SelectedProducts from './Components/Selected/SelectedProducts'
-const fetchCard = async()=>{
-  // const res = await fetch('/data.json');
- const res = fetch('/data.json').then(res => res.json())
-return res;
+
+const fetchProducts= async()=>{
+const res = await fetch('/data.json')
+return res.json();
+
+
 }
+
+
+
 function App() {
-  const cardsPromise = fetchCard();
   
+  const productPromise=fetchProducts();
+  const [badge, setBadge] = useState(0);
   return (
     <>
- <NavBar/>
+ <NavBar badge={badge}/>
 <Ban/>
-<Card/>
-<Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
-<MainCards cardsPromise={cardsPromise}/>
+<Suspense fallback={ <span className="loading loading-spinner loading-xl"></span>}>
+  <Product  productPromise={productPromise} setBadge={setBadge} badge={badge}/> 
 </Suspense>
 <GetStart/>
-
 </>
   )
 }
 
 export default App
+
+

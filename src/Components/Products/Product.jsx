@@ -1,58 +1,28 @@
-import React, { } from 'react';
-import Card from '../Cards/Card';
-import SelectedProducts from '../Selected/SelectedProducts';
+import React, { use, useState } from 'react';
+import ShowingCart from '../ShowingCart/ShowingCart';
+import SelectedPro from '../Selected/SelectedPro';
 
-
-const Product = ({cards}) => {
-  
-    console.log(cards,'cards')
+const Product = ({productPromise ,setBadge, badge}) => {
+    console.log(productPromise);
+    const carts= use(productPromise);
+    console.log(carts);
+   const [buttonType, setButtonType] = useState('products');
+   console.log(buttonType,'buttonType');
+   const [selectedProducts, setSelectedProducts] = useState([]);
     return (
-        <div className='flex flex-wrap justify-center gap-6'>
-        
-{
-    cards.map((card )=> {
-       
-        return  <div className="card w-96 bg-base-100 shadow-sm mb-30">
-         
-  <div className="card-body flex flex-col ">
-   <div className='flex gap-50'> <img src={card.icon} alt="" className='rounded-full w-10 h-10 border border-gray-300'/>
-    <span className=" badge badge-xs badge-warning">{card.tag}</span>
-    </div>
-
-    <div className="">
-      <h2 className="text-3xl font-bold">{card.name}</h2>
-      <p>{card.description}</p>
-      <span className="text-xl">${card.price}/{card.period}</span>
-    </div>
-    
-    <ul className="mt-6 flex flex-col gap-2 text-xs">
-  {
-    card.features.map((feature, index) => (
-      <li key={index} className="flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-4 me-2 inline-block text-success"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-        </svg>
-        <span>{feature}</span>
-      </li>
-    ))
-  }
-</ul>
-    <div className="mt-6">
-      <button className="btn btn-primary btn-block rounded-full">Buy Now</button>
-    </div>
-  </div>
-</div>
-    })
-}
-
-   {selectedType === 'products'? (<Card Product={Product}/>):(<SelectedProducts/>)}   
-        <Card Product={Product} />     
+        <div className='container mx-auto text-center mt-20 space-y-5'>
+          <h2 className='text-4xl font-bold'>Premium Digital Tools</h2>
+          <p>Choose from our curated collection of premium digital products designed to boost your productivity and creativity.</p>
+          <div>
+            <button onClick={() => setButtonType('products')} className={`btn ${ buttonType === 'products'? 
+                'bg-linear-65 from-purple-800 to-purple-400':
+                'bg-white'} rounded-r-none rounded-l-xl`}>Products</button>
+            <button onClick={() => setButtonType('carts')} className={`btn ${ buttonType === 'carts'? 
+                'bg-linear-65 from-purple-800 to-purple-400':
+                'bg-white'} rounded-l-none rounded-r-xl`}>Carts({badge})</button>
+          </div>
+      { buttonType === 'products'? (<ShowingCart carts={carts} setBadge={setBadge} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}/>) : 
+      (<SelectedPro  setSelectedProducts={setSelectedProducts}/>) }     
         </div>
     );
 };
