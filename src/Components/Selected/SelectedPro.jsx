@@ -1,9 +1,10 @@
 import React from 'react';
 import SelectedProducts from './SelectedProducts';
 import { CiShoppingCart } from "react-icons/ci";
+import { toast } from 'react-toastify';
 
 
-const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge }) => {
+const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge,cart }) => {
     console.log(selectedProducts, 'selected products')
     const totalPrice = selectedProducts.reduce(
         (total, cart) => total + (cart.price),
@@ -12,6 +13,7 @@ const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge }) => {
     const handleCheckout = () => {
         setSelectedProducts([]); // clear all items
         setBadge(0); // reset badge
+        toast(` removed all!`);
     };
     const handleDeleteCart = (cart) => {
         console.log(selectedProducts, 'delete cart')
@@ -19,6 +21,7 @@ const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge }) => {
         console.log(filteredProducts, 'filtered products')
         setSelectedProducts(filteredProducts);
         setBadge(prev => prev - 1);
+        toast(`${cart.name} removed!`);
     }
     return (
         <div className='mb-20'>
