@@ -22,7 +22,7 @@ const Product = ({productPromise ,setBadge, badge}) => {
                 'bg-white'} rounded-l-none rounded-r-xl`}>Carts({badge})</button>
           </div>
       { buttonType === 'products'? (<ShowingCart carts={carts} setBadge={setBadge} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}/>) : 
-      (<SelectedPro  setSelectedProducts={setSelectedProducts}/>) }     
+      (<SelectedPro  setSelectedProducts={setSelectedProducts} selectedProducts={selectedProducts} badge={badge} setBadge={setBadge}/>) }     
         </div>
     );
 };

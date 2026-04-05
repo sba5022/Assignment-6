@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 
 const Cartts = ({cart,setBadge, selectedProducts, setSelectedProducts}) => {
    
     const [isChoosed,setIsChoosed]= useState(false);
- useEffect(() => {
-    if (isChoosed) {
-      const timer = setTimeout(() => {
-        setIsChoosed(false);
-      }, 2000);
+//  useEffect(() => {
+//     if (isChoosed) {
+//       const timer = setTimeout(() => {
+//         setIsChoosed(false);
+//       }, 2000);
 
-      // cleanup (VERY IMPORTANT)
-      return () => clearTimeout(timer);
-    }
-  }, [isChoosed]);
+//       // cleanup (VERY IMPORTANT)
+//       return () => clearTimeout(timer);
+//     }
+//   }, []);
   const handleAddToCart = () => {
       setIsChoosed(true); setBadge(prev => prev + 1);
+      setSelectedProducts([...selectedProducts, cart]);
     }
-     setSelectedProducts([...selectedProducts, cart]);
+     
     
     return (
         
