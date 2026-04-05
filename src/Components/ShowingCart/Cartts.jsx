@@ -1,4 +1,5 @@
 import React, {  useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Cartts = ({cart,setBadge, selectedProducts, setSelectedProducts}) => {
    
@@ -14,8 +15,10 @@ const Cartts = ({cart,setBadge, selectedProducts, setSelectedProducts}) => {
 //     }
 //   }, []);
   const handleAddToCart = () => {
+
       setIsChoosed(true); setBadge(prev => prev + 1);
       setSelectedProducts([...selectedProducts, cart]);
+      toast(`${cart.name} added to cart!`);
     }
      
     

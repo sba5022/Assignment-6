@@ -1,35 +1,48 @@
 import React from 'react';
-import { MdDeleteOutline } from "react-icons/md";
+import SelectedProducts from './SelectedProducts';
 
-const SelectedPro = ({selectedProducts,setSelectedProducts, badge, setBadge}) => {
-    console.log(selectedProducts,'selected products')
+
+const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge }) => {
+    console.log(selectedProducts, 'selected products')
+const totalPrice = selectedProducts.reduce(
+  (total, cart) => total + (cart.price ),
+  0
+);
+const handleCheckout = () => {
+  setSelectedProducts([]); // clear all items
+  setBadge(0); // reset badge
+};
     const handleDeleteCart = (cart) => {
-console.log(selectedProducts,'delete cart')
-const filteredProducts = selectedProducts.filter(selectedProducts=> selectedProducts.name !== cart.name);
-console.log(filteredProducts,'filtered products')
-setSelectedProducts(filteredProducts);
-setBadge(prev => prev - 1);
+        console.log(selectedProducts, 'delete cart')
+        const filteredProducts = selectedProducts.filter(selectedProducts => selectedProducts.name !== cart.name);
+        console.log(filteredProducts, 'filtered products')
+        setSelectedProducts(filteredProducts);
+        setBadge(prev => prev - 1);
     }
     return (
         <div>
-           {
-            selectedProducts.map( cart => {
-                return(
-               <div className='border border-gray-300 flex items-center gap-6 justify-between'>
-                
-                   <div className='flex gap-3 items-center p-10'>
-                    <img src={cart.icon} alt="" />
-                    <div className='flex items-center gap-3 '>
-                        <h2 className='font-bold text-3xl'>{cart.name}</h2>
-                        <p>${cart.price}</p>
-                    </div>
-                   </div>
-               <button className='btn text-red-500' onClick={()=>handleDeleteCart(cart)}><MdDeleteOutline /></button>
-               </div>
-                )
-            })
-           }
-        
+            {selectedProducts.length === 0 ? <div className='mb-20'>
+                <h2 className='text-3xl font-bold text-center'>No products selected</h2>
+                <p>Go to the product page to add items to your cart.</p>
+            </div> : <div>
+                {
+                    selectedProducts.map(cart => {
+                        return (
+
+                            <SelectedProducts cart={cart} handleDeleteCart={handleDeleteCart} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}
+                                setBadge={setBadge} />
+
+                        )
+                    })
+                }
+                <div className='flex justify-between gap-10'>
+            <h2 className='text-3xl font-bold'>Total: </h2>
+            <p>${totalPrice.toFixed(2)}</p>
+        </div>
+       <button onClick={handleCheckout} className="btn btn-primary">Proceed to Checkout</button>
+            </div>
+            }
+
         </div>
     );
 };

@@ -9,6 +9,8 @@ import Ban from './Components/Bans/Ban'
 import NavBar from './Components/NavBar'
 import Product from './Components/Products/Product'
 import GetStart from './Components/Get/GetStart'
+import { ToastContainer } from 'react-toastify'
+import Price from './Components/PricingSection/Price'
 
 const fetchProducts= async()=>{
 const res = await fetch('/data.json')
@@ -30,7 +32,10 @@ function App() {
 <Suspense fallback={ <span className="loading loading-spinner loading-xl"></span>}>
   <Product  productPromise={productPromise} setBadge={setBadge} badge={badge}/> 
 </Suspense>
+ <ToastContainer />
+ 
 <GetStart/>
+<Price/>
 </>
   )
 }
