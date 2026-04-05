@@ -4,7 +4,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { toast } from 'react-toastify';
 
 
-const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge,cart }) => {
+const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge }) => {
     console.log(selectedProducts, 'selected products')
     const totalPrice = selectedProducts.reduce(
         (total, cart) => total + (cart.price),
