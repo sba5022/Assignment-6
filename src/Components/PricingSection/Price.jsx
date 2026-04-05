@@ -3,11 +3,11 @@ import React from 'react';
 const Price = () => {
     return (
         <div>
-            <div className='text-center'>
+            <div className='text-center mb-20'>
                 <h2 className='text-3xl font-bold'>Simple, Transparent Pricing</h2>
                 <p className='text-gray-500'>Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
             </div>
-            <div className='grid grid-cols-3 justify-between gap-4'>
+            <div className='grid grid-cols-3 justify-between gap-'>
             <div className="card w-100 bg-base-100 shadow-sm mx-10">
   <div className="card-body ">
     <span className="badge badge-xs badge-warning">Most Popular</span>
@@ -46,7 +46,10 @@ const Price = () => {
     </div>
   </div>
 </div>
- <div className="card w-100 bg-base-100 shadow-sm mx-10 ">
+ <div className="card w-100 bg-base-100 shadow-sm mx-10 hover:bg-purple-500
+                hover:scale-105 
+                hover:shadow-2xl 
+                transition-all duration-300">
   <div className="card-body ">
     <span className="badge badge-xs badge-warning">Most Popular</span>
     <div className="flex justify-between">
