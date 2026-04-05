@@ -1,5 +1,6 @@
 import React from 'react';
 import { Play } from 'lucide-react';
+import banner from '../../assets/banner.png';
 
 const Ban = () => {
     return (
@@ -19,7 +20,7 @@ const Ban = () => {
 </div>
             </div>
             <div className='w-98 h-22'>
-                <img src="/src/assets/banner.png" alt="" className='shadow'/>
+                <img src={banner} alt="" className='shadow'/>
             </div>
         </div>  
 
