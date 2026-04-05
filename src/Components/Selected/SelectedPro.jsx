@@ -1,5 +1,6 @@
 import React from 'react';
 import SelectedProducts from './SelectedProducts';
+import { CiShoppingCart } from "react-icons/ci";
 
 
 const SelectedPro = ({ selectedProducts, setSelectedProducts, setBadge }) => {
@@ -22,8 +23,9 @@ const handleCheckout = () => {
     return (
         <div>
             {selectedProducts.length === 0 ? <div className='mb-20'>
+                <img src={<CiShoppingCart />} alt="" />
                 <h2 className='text-3xl font-bold text-center'>No products selected</h2>
-                <p>Go to the product page to add items to your cart.</p>
+              
             </div> : <div>
                 {
                     selectedProducts.map(cart => {

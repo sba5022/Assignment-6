@@ -3,10 +3,10 @@ import React from 'react';
 const NavBar = ({ badge }) => {
     return (
       <div className="navbar bg-base-100 shadow-sm mb-10">
-  <div className="flex-1">
+  <div className="">
     <a className="btn btn-ghost text-4xl bg-linear-65 from-purple-800 to-purple-400 bg-clip-text text-transparent">DigiTools</a>
   </div>
-  <div className='flex text-center justify-center gap-4 mx-90'>
+  <div className='hidden lg:flex gap-6'>
     <a href="">Products</a>
     <a href="">Features</a>
     <a href="">Pricing</a>

@@ -3,8 +3,8 @@ import { Play } from 'lucide-react';
 
 const Ban = () => {
     return (
-     <div>
-           <div className='grid grid-cols-2 mx-50 gap-20 mb-30'>
+     <div className=''>
+           <div className='grid grid-cols-1 md:grid-cols-2 mx-50 gap-20 mb-30'>
             <div className='my-15'>
           <p className=' text-purple-900 bg-[#E1E7FF] rounded-full'>New: AI-Powered Tools Available</p>
                 <h2 className='text-5xl font-bold'>Supercharge Your 
@@ -24,16 +24,16 @@ const Ban = () => {
         </div>  
 
         <div className='bg-linear-65 from-indigo-600 to-purple-500'>
-<div className="flex w-full gap-10 px-90 py-15">
+<div className="flex flex flex-col md:flex-row w-full gap-10 px-4 sm:px-8 lg:px-20 py-15">
   <div><h2 className='font-bold text-5xl  text-white'>50K+</h2>
   <p className='text-white'>Active Users</p>
   </div> 
-  <div className="divider divider-horizontal"></div>
+  <div className="divider divider-horizontal hidden md:block"></div>
   <div>
 <h2 className='font-bold text-5xl  text-white'>200+</h2>
 <p className='text-white'>Premium Tools</p>
   </div>
-  <div className="divider divider-horizontal"></div>
+  <div className="divider divider-horizontal hidden md:block"></div>
   <div>
 <h2 className='font-bold text-5xl  text-white'>4.9</h2>
 <p className='text-white'>Rating</p>
