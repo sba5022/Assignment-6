@@ -37,7 +37,7 @@ const Price = () => {
      
     </ul>
     <div className="mt-6">
-      <button className="btn btn-primary btn-block">Subscribe</button>
+      <button className="btn btn-primary btn-block">Buy now</button>
     </div>
   </div>
 </div>
@@ -73,7 +73,7 @@ const Price = () => {
      
     </ul>
     <div className="mt-6">
-      <button className="btn btn-primary btn-block">Subscribe</button>
+      <button className="btn btn-primary btn-block">Buy Now</button>
     </div>
   </div>
 </div>
@@ -106,7 +106,7 @@ const Price = () => {
     
     </ul>
     <div className="mt-6">
-      <button className="btn btn-primary btn-block">Subscribe</button>
+      <button className="btn btn-primary btn-block">Buy Now</button>
     </div>
   </div>
 </div>
